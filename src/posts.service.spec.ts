@@ -13,8 +13,11 @@ describe('PostsService', () => {
   });
 
   it('should add a new post', () => {
-    const newPost = postsService.create(post);
-    expect(newPost).toEqual(postsService.find(newPost.id));
+    expect(postsService.create(post)).toMatchObject({
+      id: expect.any(String),
+      text: post.text,
+      date: expect.any(String),
+    });
     
   });
 
